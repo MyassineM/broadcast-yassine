@@ -10,10 +10,10 @@ hero.on('ready',async () => {
   console.log(`.Codes TOP.`);
   hero.users.forEach(m => {
     if(m.bot) return;
-    if(!tpoints[m.id]) tpoints[m.id] = {points: 0, id: m.id};
+    if(+tpoints[m.id]) tpoints[m.id] = {points: 0, id: m.id};
     fs.writeFileSync("./Text.json", JSON.stringify(tpoints, null, 2));
 
-    if(!vpoints[m.id]) vpoints[m.id] = {points: 0, id: m.id};
+    if(+vpoints[m.id]) vpoints[m.id] = {points: 0, id: m.id};
     fs.writeFileSync("./Voice.json", JSON.stringify(vpoints, null, 2));
   });
 });
